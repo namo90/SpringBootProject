@@ -13,20 +13,17 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 import com.app.Azure2PCF.dto.UserDataConvertorDto;
-import com.app.Azure2PCF.dto.excelDataDto;
-import com.app.Azure2PCF.dto.orderRequestDto;
 import com.app.Azure2PCF.helper.CSVHelper;
 import com.app.Azure2PCF.model.ExcelToDb;
-import com.app.Azure2PCF.model.Order;
 import com.app.Azure2PCF.model.ResponseMessage;
 import com.app.Azure2PCF.repository.ExcelToDbRepository;
 import com.app.Azure2PCF.service.CSVService;
@@ -102,6 +99,16 @@ public class CSVController {
 	 excelToDbRepository.saveAll(excelToDb).forEach(db::add);
 		//return customerOrderServiceImpl.saveOrder(order);
 	
+	return null;
+	}
+  
+  @PostMapping("/exceltodb1")
+  //@RequestMapping(value = "/exceltodb",method = RequestMethod.POST, consumes = MediaType.APPLICATION_JSON_VALUE)
+	public ResponseEntity<Object> placeOrder1(@RequestBody List<ExcelToDb> excelToDb) {
+	  StringBuilder stringBuilder=new StringBuilder();
+	  stringBuilder.append("inside the excel ");
+	  stringBuilder.append(excelToDb);
+	System.out.println(stringBuilder);
 	return null;
 	}
 }
