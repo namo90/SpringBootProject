@@ -1,6 +1,5 @@
 package com.app.Azure2PCF.controller;
 
-import java.math.BigDecimal;
 import java.util.List;
 import java.util.Optional;
 
@@ -8,13 +7,10 @@ import javax.persistence.Query;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -24,12 +20,9 @@ import org.springframework.web.bind.annotation.SessionAttributes;
 
 import com.app.Azure2PCF.dao.OrderDao;
 import com.app.Azure2PCF.dto.UserDataConvertorDto;
-import com.app.Azure2PCF.dto.UserDataDto;
+import com.app.Azure2PCF.dto.jquery;
 import com.app.Azure2PCF.dto.orderRequestDto;
-import com.app.Azure2PCF.dto.orderResponseDto;
-import com.app.Azure2PCF.model.JwtResponce;
 import com.app.Azure2PCF.model.Order;
-import com.app.Azure2PCF.model.UserData;
 import com.app.Azure2PCF.service.OrderServiceImpl;
 import com.app.Azure2PCF.service.SendEmailServiceImpl;
 import com.app.Azure2PCF.service.UserDataServiceImpl;
@@ -132,6 +125,16 @@ public class OrderController {
 
 	}
 	
+	@GetMapping("/getinnerjoin")
+	public ResponseEntity<Object> getinnerinfo() {
+		
+		Query ListOfUserOrder = orderDao.getinnerjoinop();
+		return ResponseEntity.ok(ListOfUserOrder);
+
+	}
+	
+	
+	
 	@GetMapping("/getordersinfoview")
 	public ResponseEntity<Object> getordersinfo1() {
 		
@@ -145,4 +148,16 @@ public class OrderController {
 		return orderDao.getorder();
 	}
 
+	/*
+	 * //its calling get joinquryoutput
+	 * 
+	 * @GetMapping("/getjoinqueryop") public List<Object> getjoinqueryop(){
+	 * List<Object> joinQuderyOutput =
+	 * customerOrderServiceImpl.getJoinQuderyOutput(); if(joinQuderyOutput !=null) {
+	 * return joinQuderyOutput; }
+	 * 
+	 * return null;
+	 * 
+	 * }
+	 */
 }

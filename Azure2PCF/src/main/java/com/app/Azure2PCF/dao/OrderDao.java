@@ -47,5 +47,15 @@ public class OrderDao {
 		return orderlist;
 		 
 	 }
+	 
+	 public Query getinnerjoinop(){
+			@SuppressWarnings("unchecked")
+			Query orderlist=	 em.createNativeQuery("select * from Orders");
+			
+			List resultList = orderlist.getResultList();
+			System.out.println("-----------"+resultList.toString());
+				return orderlist;
+				 
+			 }
 
 }

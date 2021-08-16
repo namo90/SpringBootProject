@@ -1,5 +1,7 @@
 package com.app.Azure2PCF.controller;
 
+import java.util.List;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
@@ -11,6 +13,7 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.ui.ModelMap;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -24,6 +27,7 @@ import com.app.Azure2PCF.helper.JwtUtil;
 import com.app.Azure2PCF.model.JwtResponce;
 import com.app.Azure2PCF.model.Order;
 import com.app.Azure2PCF.model.UserData;
+import com.app.Azure2PCF.repository.UserRepository;
 import com.app.Azure2PCF.service.CustomUserDetailService;
 import com.app.Azure2PCF.service.SendEmailServiceImpl;
 import com.app.Azure2PCF.service.UserDataServiceImpl;
@@ -58,6 +62,8 @@ public class JwtController {
 	MailConfiguration mailconf;
 	@Autowired
 	SendEmailServiceImpl sendEmailServiceImpl;
+	@Autowired
+	UserRepository userRepository;
 
 //HttpServletRequest request
 	@PostMapping("/genratetoken")
@@ -88,5 +94,14 @@ public class JwtController {
 		sendEmailServiceImpl.sendEmail(userDataDto);
 
 		return "Email sent Successfully";
+	}
+	//calling to joinquery
+	@SuppressWarnings("unchecked")
+	@GetMapping("/getjoin")
+	public List<Object> f() {
+		List<Object> joinQuderyOutput = userRepository.getJoinQuderyOutput();
+		System.out.println("--------0000--"+joinQuderyOutput);
+		return  joinQuderyOutput;
+		
 	}
 }

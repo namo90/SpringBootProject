@@ -47,6 +47,8 @@ implementation group: 'commons-io', name: 'commons-io', version: '2.11.0'
 implementation group: 'org.apache.commons', name: 'commons-csv', version: '1.8'
 
 //http://www.pixeltrice.com/import-the-csv-file-into-mysql-database-using-spring-boot-application/
+
+compileOnly 'javax.xml.bind:jaxb-api:2.3.0'
     
 }
 

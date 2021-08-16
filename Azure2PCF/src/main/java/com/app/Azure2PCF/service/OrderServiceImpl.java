@@ -5,16 +5,14 @@ import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
 
 import com.app.Azure2PCF.customException.EmptyIdException;
 import com.app.Azure2PCF.customException.EmptyInputException;
-import com.app.Azure2PCF.dto.orderRequestDto;
-import com.app.Azure2PCF.dto.orderResponseDto;
+import com.app.Azure2PCF.dto.jquery;
 import com.app.Azure2PCF.model.Order;
 import com.app.Azure2PCF.repository.OrderRepository;
 
-@Service
+@Service("OrderService")
 
 public class OrderServiceImpl implements OrderService {
 
@@ -87,5 +85,14 @@ public class OrderServiceImpl implements OrderService {
 		// TODO Auto-generated method stub
 		return customerRepository.Nqgetfunctionop();
 	}
+
+	
+	/*
+	 * //its get joinqueryOutput
+	 * 
+	 * @Override public List<Object> getJoinQuderyOutput() {
+	 * 
+	 * return customerRepository.getJoinQuderyOutput(); }
+	 */
 
 }

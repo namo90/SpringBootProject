@@ -3,16 +3,14 @@ package com.app.Azure2PCF.repository;
 import java.util.List;
 
 import javax.persistence.EntityManager;
-import javax.persistence.StoredProcedureQuery;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
-import org.springframework.data.jpa.repository.query.Procedure;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
-import com.app.Azure2PCF.dto.orderResponseDto;
+import com.app.Azure2PCF.dto.jquery;
 import com.app.Azure2PCF.model.Order;
 
 @Repository
@@ -44,4 +42,5 @@ public interface OrderRepository extends JpaRepository<Order, Integer> {
 		
 		
 	}
+	
 }

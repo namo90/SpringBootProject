@@ -1,5 +1,6 @@
 package com.app.Azure2PCF.repository;
 
+import java.util.List;
 import java.util.Optional;
 
 import org.springframework.data.jpa.repository.JpaRepository;
@@ -18,5 +19,10 @@ public interface UserRepository extends JpaRepository<UserData, Integer> {
 	String selectRecordByuserId(@Param("userName")String name);
 
 	//Optional findById(String username);
+	
+	 //its writing for custom query joinquery
+	 
+	 @Query("select u.username,o.productName,o.qty from UserData u inner join u.orders o where u.id=1")
+		 public List<Object> getJoinQuderyOutput();
 
 }

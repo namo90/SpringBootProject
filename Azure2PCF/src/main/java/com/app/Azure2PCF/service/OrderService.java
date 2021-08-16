@@ -3,8 +3,7 @@ package com.app.Azure2PCF.service;
 import java.util.List;
 import java.util.Optional;
 
-import com.app.Azure2PCF.dto.orderRequestDto;
-import com.app.Azure2PCF.dto.orderResponseDto;
+import com.app.Azure2PCF.dto.jquery;
 import com.app.Azure2PCF.model.Order;
 
 public interface OrderService {
@@ -25,4 +24,8 @@ public interface OrderService {
 
 	public List<Order> gettotalOrders();
 	public List<Order> getordersinfo();
+	
+	/*
+	 * //its for get joinquery output public List<Object> getJoinQuderyOutput();
+	 */
 }
