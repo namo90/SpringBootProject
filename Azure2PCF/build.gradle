@@ -16,18 +16,34 @@ repositories {
 
 
 
-springBoot {
-    mainClassName = 'com.app.Azure2PCF.Azure2PcfApplication'
+//springBoot {
+//    mainClassName = 'com.app.Azure2PCF.Azure2PcfApplication'
+//}
+
+//bootJar {
+
+ //   mainClassName = 'com.app.Azure2PCF.Azure2PcfApplication'
+
+//}
+
+
+jar {
+    manifest {
+        attributes(
+                'Main-Class': 'com.app.Azure2PCF.Azure2PcfApplication'
+        )
+    }
 }
+task fatJar(type:Jar){
+ manifest {
+        attributes 'Main-Class': 'com.app.Azure2PCF.Azure2PcfApplication'
+        
+    }
+    from{
+    configurations.compile.collect{it.isDirectory() ? it : zipTree(it)}
+    }
+    with jar
 
-bootJar {
-//    This is overridden by the mainClassName in springBoot{} and added here for reference purposes.
-    mainClassName = 'com.app.Azure2PCF.Azure2PcfApplication'
-
-//    This block serves the same purpose as the above thus commented out. Added here for reference purposes
-//    manifest {
-//        attributes 'Start-Class': 'com.baeldung.DemoApplication'
-//    }
 }
 
 dependencies {
