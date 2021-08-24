@@ -17,20 +17,19 @@ import com.app.Azure2PCF.service.UserDataServiceImpl;
 @DataJpaTest
 @AutoConfigureTestDatabase(replace=Replace.NONE)
 public class UserTests {
-	@Autowired
-	UserRepository repo;
-	
-	UserDataServiceImpl userDataService;
-	@Qualifier("userDataService")
-	@Test
-	@Rollback(false)
-	public void getValidToken() throws Exception {
-		UserDataDto data =new UserDataDto();
-		String name="om";
-		String password="12345";
-		data.setUsername(name);
-		data.setPassword(password);
-		String token=	userDataService.tokenGenerateForUser(data);
-		System.out.println("geting token"+" "+token);
-	}
+	/*
+	 * @Autowired UserRepository repo;
+	 * 
+	 * UserDataServiceImpl userDataService;
+	 * 
+	 * @Qualifier("userDataService")
+	 * 
+	 * @Test
+	 * 
+	 * @Rollback(false) public void getValidToken() throws Exception { UserDataDto
+	 * data =new UserDataDto(); String name="om"; String password="12345";
+	 * data.setUsername(name); data.setPassword(password); String token=
+	 * userDataService.tokenGenerateForUser(data);
+	 * System.out.println("geting token"+" "+token); }
+	 */
 }

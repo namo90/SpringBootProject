@@ -99,6 +99,7 @@ public class JwtController {
 	@SuppressWarnings("unchecked")
 	@GetMapping("/getjoin")
 	public List<Object> f() {
+		String name="namo";
 		List<Object> joinQuderyOutput = userRepository.getJoinQuderyOutput();
 		System.out.println("--------0000--"+joinQuderyOutput);
 		return  joinQuderyOutput;

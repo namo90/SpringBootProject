@@ -12,6 +12,24 @@ repositories {
 	mavenCentral()
 }
 
+
+
+
+
+springBoot {
+    mainClassName = 'com.app.Azure2PCF.Azure2PcfApplication'
+}
+
+bootJar {
+//    This is overridden by the mainClassName in springBoot{} and added here for reference purposes.
+    mainClassName = 'com.app.Azure2PCF.Azure2PcfApplication'
+
+//    This block serves the same purpose as the above thus commented out. Added here for reference purposes
+//    manifest {
+//        attributes 'Start-Class': 'com.baeldung.DemoApplication'
+//    }
+}
+
 dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter-actuator'
 	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
@@ -25,7 +43,7 @@ dependencies {
 	implementation('io.jsonwebtoken:jjwt:0.9.1')
 	compileOnly 'org.projectlombok:lombok'
 	annotationProcessor 'org.projectlombok:lombok'
-	compileOnly 'mysql:mysql-connector-java:8.0.13'
+	runtimeOnly 'mysql:mysql-connector-java:8.0.13'
 	//implementation 'org.springframework.boot:spring-boot-starter-mail'
 	//compile("org.springframework.boot:spring-boot-starter-mail")
     //compile('org.springframework.boot:spring-boot-starter-velocity')
@@ -55,3 +73,8 @@ compileOnly 'javax.xml.bind:jaxb-api:2.3.0'
 test {
 	useJUnitPlatform()
 }
+
+
+
+
+

@@ -22,7 +22,10 @@ public interface UserRepository extends JpaRepository<UserData, Integer> {
 	
 	 //its writing for custom query joinquery
 	 
-	 @Query("select u.username,o.productName,o.qty from UserData u inner join u.orders o where u.id=1")
-		 public List<Object> getJoinQuderyOutput();
+//	 @Query("select u.username,o.productName,p.productName2,o.qty,p.qty2 from UserData u inner join u.orders o inner join u.Products p where u.id=1 and lower(u.username)=lower(:userName)")
+//		 public List<Object> getJoinQuderyOutput(@Param("userName")String name);
+	
+	 @Query("select u.username,o.productName,p.productName2,o.qty,p.qty2 from UserData u inner join u.orders o inner join u.Products p")
+	 public List<Object> getJoinQuderyOutput();
 
 }

@@ -8,9 +8,8 @@ import org.springframework.boot.test.context.SpringBootTest;
 @SpringBootTest
 class Azure2PcfApplicationTests {
 
-	@Test
-	void contextLoads() {
-		assertTrue(true);
-	}
+	
+	 @Test void contextLoads() { assertTrue(true); }
+	 
 
 }

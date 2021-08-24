@@ -8,6 +8,7 @@ public class Azure2PcfApplication {
 
 	public static void main(String[] args) {
 		SpringApplication.run(Azure2PcfApplication.class, args);
+		System.out.println("inside ---");
 	}
 
 }

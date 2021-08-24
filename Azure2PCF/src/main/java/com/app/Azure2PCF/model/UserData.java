@@ -38,5 +38,8 @@ public class UserData {
 	@OneToMany(cascade = CascadeType.ALL)
 	@JoinColumn(name="ui_fk",referencedColumnName = "id")
 	private List<Order>orders=new ArrayList<>();
+	@OneToMany(cascade = CascadeType.ALL,targetEntity=ProductOrder.class)
+	@JoinColumn(name="ui_fk",referencedColumnName = "id")
+	private List<ProductOrder> Products=new ArrayList<>();
 
 }
